@@ -15,5 +15,8 @@ TODO - define roles
 - VSCode is the default editor
 - Every commit must have an emoji, as [Git Emoji Commit](https://marketplace.visualstudio.com/items?itemName=maixiaojie.git-emoji) defines
 
+## VM IP
+- 35.229.26.232
+
 ## Tools
 TODO - define every tool that will be used
