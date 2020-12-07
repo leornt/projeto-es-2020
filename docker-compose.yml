@@ -12,7 +12,7 @@ services:
     networks: 
       - lan
     ports:
-      - 8080:80
+      - 80:80
     restart: "no"
     volumes:
       - ./composer_cache:/root/.composer/cache:cached

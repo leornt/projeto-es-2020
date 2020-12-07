@@ -5,6 +5,13 @@ set -e
 role=${CONTAINER_ROLE:-app}
 env=${APP_ENV:-production}
 
+### Check and create if storage directory does not exist ###
+if [ ! -d "/var/www/storage" ]
+then
+    echo "Creating folder: /var/www/storage"
+    mkdir /var/www/storage
+fi
+
 ### Check and create if storage framework directory does not exist ###
 if [ ! -d "/var/www/storage/framework" ]
 then
