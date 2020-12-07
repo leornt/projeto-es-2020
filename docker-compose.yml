@@ -1,17 +1,37 @@
 version: '3'
+networks:
+  lan:
 
 services:
-  db:
-    image: akoller/low-memory-mysql
-    command: --default-authentication-plugin=mysql_native_password
+  application:
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile
+    command:
+      - /docker-entrypoint-init.d/init.sh
+    networks: 
+      - lan
+    ports:
+      - 8080:80
     restart: "no"
+    volumes:
+      - ./composer_cache:/root/.composer/cache:cached
+      - ./www:/var/www:cached
+      - ./docker/scripts/init.sh:/docker-entrypoint-init.d/init.sh
+
+  db:
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: mysqlPassword
       MYSQL_DATABASE: app_db
       MYSQL_USER: app_user
       MYSQL_PASSWORD: mysqlPassword
       MYSQL_ROOT_HOST: '%'
+    image: akoller/low-memory-mysql
+    networks: 
+      - lan
     ports:
       - 3306:3306
+    restart: "no"
     volumes:
       - ./db_data:/var/lib/mysql
