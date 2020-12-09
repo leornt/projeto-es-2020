@@ -9,7 +9,7 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 
 # Team
 | Member | Role |
-|-----------------------|------------------------| 
+|:-----------------------|:------------------------| 
 | André Pires Nobre | Secretary and Back-end |
 | João Marcos Kaminoski | Back-end |
 | Leonardo Renaut | Organizer and Infrastructure |
