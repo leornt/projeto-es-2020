@@ -32,6 +32,7 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 
 ## Useful links
 - [Base Project](https://github.com/ProfPetroski/ProjetoExemplo)
+- [Close Issues](https://docs.github.com/en/enterprise/2.16/user/github/managing-your-work-on-github/closing-issues-using-keywords)
 - [Laravel Course](https://www.youtube.com/watch?v=zckH4xalOns&list=PL4cUxeGkcC9hL6aCFKyagrT1RCfVN4w2Q)
 - [Markdown Guide](https://www.markdownguide.org/)
     - [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
