@@ -29,3 +29,6 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 - [Laravel](https://laravel.com/): PHP framework for web-apps
 - [MySQL](https://www.mysql.com/): Database
 - [Figma](https://www.figma.com): Prototyping
+
+## Useful links
+- [Base Project](https://github.com/ProfPetroski/ProjetoExemplo)
