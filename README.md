@@ -32,3 +32,6 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 
 ## Useful links
 - [Base Project](https://github.com/ProfPetroski/ProjetoExemplo)
+- [Markdown Guide](https://www.markdownguide.org/)
+    - [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+    - [Basic Syntax](https://www.markdownguide.org/basic-syntax/)
