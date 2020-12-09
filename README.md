@@ -1,4 +1,4 @@
-## Projeto Engenharia de Software - 2020
+### Projeto Engenharia de Software - 2020
 
 # bCalc - Budget Calculator 
 ## Description
@@ -10,7 +10,7 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 |:-----------------------|:------------------------| 
 | André Pires Nobre | Secretary and Back-end |
 | João Marcos Kaminoski | Back-end and Design |
-| Leonardo Renaut | Organizer and Infrastructure |
+| Leonardo Renaut | PO and Infrastructure |
 | Pedro Henrique Raissa | Back-end |
 
 ## Patterns
@@ -18,8 +18,10 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 - Visual Studio Code is the default editor
 - Every commit must have an emoji, as [Git Emoji Commit](https://marketplace.visualstudio.com/items?itemName=maixiaojie.git-emoji) defines
 
-## Docker Virtual Machine IP
+## Google Cloud Virtual Machine IP
 - 35.229.26.232
+- :80 - PHP
+- :3306 - MySQL
 
 ## Tools
 - [Docker](https://www.docker.com/): Containerizing
