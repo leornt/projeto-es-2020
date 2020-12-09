@@ -17,10 +17,10 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 
 ## Patterns
 - Everything but "doc" tags, must be in English
-- VSCode is the default editor
+- Visual Studio Code is the default editor
 - Every commit must have an emoji, as [Git Emoji Commit](https://marketplace.visualstudio.com/items?itemName=maixiaojie.git-emoji) defines
 
-## VM IP
+## Docker Virtual Machine IP
 - 35.229.26.232
 
 ## Tools
