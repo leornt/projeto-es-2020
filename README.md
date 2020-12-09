@@ -16,12 +16,12 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 - Every commit must have an emoji, as [Git Emoji Commit](https://marketplace.visualstudio.com/items?itemName=maixiaojie.git-emoji) defines
 
 ## Team
-| Member | Role |
-|:-----------------------|:------------------------| 
-| André Pires Nobre | Secretary and Back-end |
-| João Marcos Kaminoski | Back-end and Design |
-| Leonardo Renaut | PO and Infrastructure |
-| Pedro Henrique Raissa | Back-end |
+| Member | Email | Role |
+|:-----------------------|:------------------------|:------------------------|
+| André Pires Nobre | andre.pires.nobre@gmail.com | Secretary and Back-end |
+| João Marcos Kaminoski | kamisou@outlook.com |  Back-end and Design |
+| Leonardo Renaut | xxforagidoxx@gmail.com | PO and Infrastructure |
+| Pedro Henrique Raissa | pedrohbr154@gmail.com | Back-end |
 
 ## Tools
 - [Docker](https://www.docker.com/): Containerizing
