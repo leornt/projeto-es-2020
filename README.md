@@ -5,6 +5,16 @@
 bCalc is a budget calculator for accompanying the monthly balance available given income and expenses.
 Keeping track of the budget available each month might be difficult, bCalc serves as a handy tool for those purposes.
 
+## Google Cloud Virtual Machine IP
+- 35.229.26.232
+- :80 - PHP
+- :3306 - MySQL
+
+## Patterns
+- Everything but "doc" tags, must be in English
+- Visual Studio Code is the default editor
+- Every commit must have an emoji, as [Git Emoji Commit](https://marketplace.visualstudio.com/items?itemName=maixiaojie.git-emoji) defines
+
 ## Team
 | Member | Role |
 |:-----------------------|:------------------------| 
@@ -12,16 +22,6 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 | João Marcos Kaminoski | Back-end and Design |
 | Leonardo Renaut | PO and Infrastructure |
 | Pedro Henrique Raissa | Back-end |
-
-## Patterns
-- Everything but "doc" tags, must be in English
-- Visual Studio Code is the default editor
-- Every commit must have an emoji, as [Git Emoji Commit](https://marketplace.visualstudio.com/items?itemName=maixiaojie.git-emoji) defines
-
-## Google Cloud Virtual Machine IP
-- 35.229.26.232
-- :80 - PHP
-- :3306 - MySQL
 
 ## Tools
 - [Docker](https://www.docker.com/): Containerizing
