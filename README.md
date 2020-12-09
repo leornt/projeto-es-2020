@@ -9,7 +9,7 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 | Member | Role |
 |:-----------------------|:------------------------| 
 | André Pires Nobre | Secretary and Back-end |
-| João Marcos Kaminoski | Back-end |
+| João Marcos Kaminoski | Back-end and Design |
 | Leonardo Renaut | Organizer and Infrastructure |
 | Pedro Henrique Raissa | Back-end |
 
@@ -22,4 +22,8 @@ Keeping track of the budget available each month might be difficult, bCalc serve
 - 35.229.26.232
 
 ## Tools
-TODO - define every tool that will be used
+- [Docker](https://www.docker.com/): Containerizing
+- [PHP](https://www.php.net/): Server-side language
+- [Laravel](https://laravel.com/): PHP framework for web-apps
+- [MySQL](https://www.mysql.com/): Database
+- [Figma](https://www.figma.com): Prototyping
