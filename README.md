@@ -1,8 +1,6 @@
 ## Projeto Engenharia de Software - 2020
 
-# bCalc - Budget Calculator 
-TODO description
-
+## bCalc - Budget Calculator 
 # Description
 bCalc is a budget calculator for accompanying the monthly balance available given income and expenses.
 Keeping track of the budget available each month might be difficult, bCalc serves as a handy tool for those purposes.
