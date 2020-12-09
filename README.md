@@ -3,12 +3,17 @@
 # bCalc - Budget Calculator 
 TODO description
 
-## Team
-TODO - define roles
-- André Pires Nobre
-- João Marcos Kaminoski
-- Leonardo Renaut
-- Pedro Henrique Raissa
+# Description
+bCalc is a budget calculator for accompanying the monthly balance available given income and expenses.
+Keeping track of the budget available each month might be difficult, bCalc serves as a handy tool for those purposes.
+
+# Team
+| Member | Role |
+|-----------------------|------------------------| 
+| André Pires Nobre | Secretary and Back-end |
+| João Marcos Kaminoski | Back-end |
+| Leonardo Renaut | Organizer and Infrastructure |
+| Pedro Henrique Raissa | Back-end |
 
 ## Patterns
 - Everything but "doc" tags, must be in English
