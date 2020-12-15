@@ -35,5 +35,8 @@ RUN pecl install protobuf && \
     echo "protobuf extension already enabled. Skipping..." ||\
     echo "extension=protobuf.so" >> $PHP_INI_DIR/php.ini
 
+RUN a2enmod rewrite
+
 WORKDIR /var/www
 RUN rm -Rf /var/www/html
+
