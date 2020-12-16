@@ -19,6 +19,6 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/pull', function() {
+Route::post('/pull', function() {
     new Process(["git pull"]);
 });
