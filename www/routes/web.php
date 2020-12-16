@@ -16,7 +16,7 @@ use Symfony\Component\Process\Process;
 */
 
 Route::get('/', function () {
-    return view('main');
+    return view('welcome');
 });
 
 Route::post('/pull', function() {
