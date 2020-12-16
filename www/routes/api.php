@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 
 /*
@@ -22,7 +24,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/pull', function() {
     $process = new Process(["git pull"]);
+    $process->setWorkingDirectory(base_path());
     $process->run();
 
-    return ['OK'];
+    if($process->isSuccessful()){
+        return ['OK'];
+    } else {
+        throw new ProcessFailedException($process);
+    }
+
 });
