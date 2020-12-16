@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/pull', function() {
-    $process = new Process(["git pull"]);
+    $process = new Process(["git", "pull"]);
     $process->setWorkingDirectory(base_path());
     $process->run();
 
