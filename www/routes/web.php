@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Process\Process;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,6 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get("/githubupdate", function() {
-    return view("githubupdate");
+Route::get('/pull', function() {
+    new Process(["git pull"]);
 });
