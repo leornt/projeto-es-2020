@@ -21,4 +21,5 @@ Route::get('/', function () {
 
 Route::post('/pull', function() {
     new Process(["git pull"]);
+    return 'OK!';
 });
