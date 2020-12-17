@@ -22,15 +22,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/pull', function() {
-    $process = new Process(["git", "pull"]);
-    $process->setWorkingDirectory(base_path());
+Route::post('/pull', function () {
+    $process = new Process(['git', 'pull']);
+    $process->setWorkingDirectory(base_path() . '/host');
     $process->run();
 
-    if($process->isSuccessful()){
+    if ($process->isSuccessful()) {
         return ['OK'];
     } else {
         throw new ProcessFailedException($process);
     }
-
 });
