@@ -14,9 +14,11 @@ services:
     ports:
       - 80:80
     restart: "no"
+    environment:
+      APP_ENV: local
     volumes:
-      - ./composer_cache:/root/.composer/cache:cached
-      - ./www:/var/www:cached
+      - ./composer_cache:/root/.composer/cache
+      - ./www:/var/www
       - ./docker/scripts/init.sh:/docker-entrypoint-init.d/init.sh
       - ./:/var/www/host
 
