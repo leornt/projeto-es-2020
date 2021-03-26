@@ -21,6 +21,8 @@ services:
       - ./www:/var/www
       - ./docker/scripts/init.sh:/docker-entrypoint-init.d/init.sh
       - ./:/var/www/host
+    depends_on: 
+      - db
 
   db:
     command: --default-authentication-plugin=mysql_native_password
