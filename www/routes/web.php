@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::redirect('/', '/home');
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/home', [HomeController::class, 'index']);
