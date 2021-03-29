@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/{date?}', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/home', [HomeController::class, 'index']);

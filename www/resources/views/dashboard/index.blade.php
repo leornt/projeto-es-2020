@@ -2,22 +2,19 @@
 
 @section('content')
 
-<h1>Dashboard</h1>
-
-<table>
+<table class="table-sm table-hover">
 	<thead>
 		<tr>
 			<th>Description</th>
-			<th>Date</th>
 			<th>Value</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach ($transactions as $trans)
-		<tr style="color: {{ $trans->IsExpense() ? 'red' : 'green' }};">
+		@foreach($transactions as $trans)
+		<tr>
 			<td>{{ $trans->description }}</td>
+			<td>{{ $trans->AbsoluteValue() }}</td>
 			<td>{{ $trans->date }}</td>
-			<td>{{ $trans->value }}</td>
 		</tr>
 		@endforeach
 	</tbody>

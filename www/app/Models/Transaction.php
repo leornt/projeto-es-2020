@@ -13,4 +13,9 @@ class Transaction extends Model
 	{
 		return $this->value < 0;
 	}
+
+	public function AbsoluteValue()
+	{
+		return abs($this->value);
+	}
 }
