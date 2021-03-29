@@ -14,6 +14,12 @@ class DashboardController extends Controller
 		return view(
 			'dashboard.index',
 			[
+				'all_transactions' => Transaction
+					::selectRaw('date, SUM(value) as total')
+					->where('user_id', Auth::id())
+					->groupBy('date')
+					->orderBy('date', 'desc')
+					->get(),
 				'transactions' => Transaction
 					::where('user_id', Auth::id())
 					->where('date', '>=', $carbon->startOfMonth()->format('Y-m-d'))

@@ -2,6 +2,12 @@
 
 @section('content')
 
+<ul>
+@foreach($all_transactions as $trans)
+	<li><a href="{{ $trans->date }}">{{ $trans->PrintableDate() }}</a> = {{ $trans->total }}</li>
+@endforeach
+</ul>
+
 <table class="table-sm table-hover">
 	<thead>
 		<tr>
