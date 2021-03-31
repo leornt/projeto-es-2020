@@ -4,7 +4,7 @@
 
 @php
 
-$date = $current->isEmpty() ? date_format(date_create(), 'Y/m/d') : $current->first()->date;
+$date = $current->isEmpty() ? date_format(date_create(), 'Y-m-d') : $current->first()->date;
 $display_month = $current->isEmpty() ? date_format(date_create(), 'F Y') : $current->first()->PrintableDate();
 $month_total = $current->isEmpty() ? 0 : $current->first()->value;
 
@@ -18,12 +18,12 @@ $month_total = $current->isEmpty() ? 0 : $current->first()->value;
 		</span>
 	</p>
 
-	<form method="POST" action="/">
+	<form class="my-5" method="POST" action="/">
 		@csrf
 		<div class="form-row">
 			<input type="hidden" name="date" value="{{ $date }}">
 			<div class="col-5">
-				<input class="form-control" type="text" name="description" required>
+				<input class="form-control" type="text" name="description" required maxlength="40">
 			</div>
 			<div class="col-2">
 				<input class="form-control" type="number" name="value" required>
@@ -36,10 +36,30 @@ $month_total = $current->isEmpty() ? 0 : $current->first()->value;
 				</select>
 			</div>
 			<div class="col-2">
-				<input class="form-control" type="submit">
+				<input class="form-control" type="submit" value="Add">
 			</div>
 		</div>
 	</form>
+
+	<div class="d-flex flex-row">
+		<form method="POST" action="/">
+			@method('DELETE')
+			@csrf
+
+			<input type="hidden" name="date" value="{{ $date }}">
+
+			<div class="list-group">
+				@foreach ($current as $t)
+				<div class="list-group-item">
+					<input type="hidden" name="id" value="{{ $t->id }}">
+					<button type="submit" class="btn btn-sm mr-4 bg-danger text-white border rounded-3">-</button>
+					{{ $t->description }} - {{ $t->value }}
+				</div>
+				@endforeach
+			</div>
+
+		</form>
+	</div>
 </div>
 
 @endsection

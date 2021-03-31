@@ -5,27 +5,23 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Transaction;
 use App\Models\TransactionType;
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
-use PhpParser\Builder\Trait_;
-
-use function PHPUnit\Framework\isEmpty;
 
 class DashboardController extends Controller
 {
-	public function index($date = null)
+	public function index($date)
 	{
 		$carbon = ($date != null) ? Carbon::createFromFormat('Y-m-d', $date) : Carbon::now();
+
+		$current = Transaction::where('user_id', Auth::id())
+			->where('date', '>=', $carbon->startOfMonth()->format('Y-m-d'))
+			->where('date', '<=', $carbon->endOfMonth()->format('Y-m-d'))
+			->get();
 
 		$all = Transaction::selectRaw('date, SUM(value) as total')
 			->where('user_id', Auth::id())
 			->groupBy('date')
 			->orderBy('date', 'desc')
-			->get();
-
-		$current = Transaction::where('user_id', Auth::id())
-			->where('date', '>=', $carbon->startOfMonth()->format('Y-m-d'))
-			->where('date', '<=', $carbon->endOfMonth()->format('Y-m-d'))
 			->get();
 
 		$t_types = TransactionType::all();
@@ -53,6 +49,12 @@ class DashboardController extends Controller
 
 		$t->save();
 
-		redirect('/');
+		return redirect('/' . request('date'));
+	}
+
+	public function delete()
+	{
+		Transaction::destroy(request('id'));
+		return redirect('/' . request('date'));
 	}
 }
