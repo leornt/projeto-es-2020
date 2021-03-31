@@ -11,7 +11,8 @@ class DashboardController extends Controller
 {
 	public function index($date)
 	{
-		$carbon = ($date != null) ? Carbon::createFromFormat('Y-m-d', $date) : Carbon::now();
+		if ($date == 'home') $date = Carbon::now()->format('Y-m-d');
+		$carbon = Carbon::createFromFormat('Y-m-d', $date);
 
 		$current = Transaction::where('user_id', Auth::id())
 			->where('date', '>=', $carbon->startOfMonth()->format('Y-m-d'))
