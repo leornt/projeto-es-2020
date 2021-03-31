@@ -22,6 +22,6 @@ class Transaction extends Model
 
 	public function PrintableDate()
 	{
-		return date_format(date_create($this->date), 'F - Y');
+		return date_format(date_create($this->date), 'F Y');
 	}
 }

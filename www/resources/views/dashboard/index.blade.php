@@ -2,28 +2,44 @@
 
 @section('content')
 
-<ul>
-@foreach($all_transactions as $trans)
-	<li><a href="{{ $trans->date }}">{{ $trans->PrintableDate() }}</a> = {{ $trans->total }}</li>
-@endforeach
-</ul>
+@php
 
-<table class="table-sm table-hover">
-	<thead>
-		<tr>
-			<th>Description</th>
-			<th>Value</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach($transactions as $trans)
-		<tr>
-			<td>{{ $trans->description }}</td>
-			<td>{{ $trans->AbsoluteValue() }}</td>
-			<td>{{ $trans->date }}</td>
-		</tr>
-		@endforeach
-	</tbody>
-</table>
+$date = $current->isEmpty() ? date_format(date_create(), 'Y/m/d') : $current->first()->date;
+$display_month = $current->isEmpty() ? date_format(date_create(), 'F Y') : $current->first()->PrintableDate();
+$month_total = $current->isEmpty() ? 0 : $current->first()->value;
+
+@endphp
+
+<div class="d-flex flex-column align-items-center">
+	<h2>Available budget in <span style="font-weight: bold;">{{ $display_month }}</span></h2>
+	<p>
+		<span style="font-size: 32px; font-weight: bold; color: {{ $month_total < 0 ? 'red' : $month_total > 0 ? 'green' : 'black' }}">
+			R$ {{ $month_total }}
+		</span>
+	</p>
+
+	<form method="POST" action="/">
+		@csrf
+		<div class="form-row">
+			<input type="hidden" name="date" value="{{ $date }}">
+			<div class="col-5">
+				<input class="form-control" type="text" name="description" required>
+			</div>
+			<div class="col-2">
+				<input class="form-control" type="number" name="value" required>
+			</div>
+			<div class="col-3">
+				<select name="transaction-type" class="form-control">
+					@foreach ($t_types as $t)
+					<option>{{ $t->name }}</option>
+					@endforeach
+				</select>
+			</div>
+			<div class="col-2">
+				<input class="form-control" type="submit">
+			</div>
+		</div>
+	</form>
+</div>
 
 @endsection
