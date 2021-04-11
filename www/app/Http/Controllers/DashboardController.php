@@ -25,7 +25,7 @@ class DashboardController extends Controller
 			->orderBy('date', 'desc')
 			->get();
 
-		$t_types = TransactionType::all();
+		$t_types = TransactionType::select()->orderBy('name')->get();
 
 		return view(
 			'dashboard.index',

@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
+Route::get('/', function () {
+    
+});
 Route::get('/{date}', [DashboardController::class, 'index'])->middleware('auth');
 Route::post('/', [DashboardController::class, 'save']);
 Route::delete('/', [DashboardController::class, 'delete']);

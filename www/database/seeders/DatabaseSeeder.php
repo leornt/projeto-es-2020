@@ -17,7 +17,5 @@ class DatabaseSeeder extends Seeder
 	{
 		$transactionType = new TransactionTypeSeeder;
 		$transactionType->run();
-
-		Transaction::factory()->count(256)->create();
 	}
 }

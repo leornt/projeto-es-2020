@@ -15,7 +15,7 @@ class TransactionTypeSeeder extends Seeder
     public function run()
     {
         DB::table('transaction_types')->insert([
-			'name' => 'General'
+			'name' => 'Other'
 		]);
     }
 }
