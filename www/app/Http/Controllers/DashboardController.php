@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-	public function index($date)
+	public function index($date = null)
 	{
-		if ($date == 'home') $date = Carbon::now()->format('Y-m-d');
+		if ($date == null)
+			return redirect('/' . date_format(date_create(), 'Y-m-d'));
 		$carbon = Carbon::createFromFormat('Y-m-d', $date);
 
 		$current = Transaction::where('user_id', Auth::id())
@@ -30,32 +31,33 @@ class DashboardController extends Controller
 		return view(
 			'dashboard.index',
 			[
-				't_types' => $t_types,
 				'all' => $all,
-				'current' => $current
+				'date' => $date,
+				'current' => $current,
+				't_types' => $t_types
 			]
 		);
 	}
 
-	public function save()
+	public function save($date)
 	{
 		$t = new Transaction();
 
 		$t->user_id = Auth::id();
 		$t->transaction_type_id = TransactionType::where('name', request("transaction-type"))->first()->id;
-		$t->date = request('date');
+		$t->date = $date;
 		$t->description = request('description');
 		$t->value = request('value');
 		$t->type = $t->value < 0 ? "expense" : "income";
 
 		$t->save();
 
-		return redirect('/' . request('date'));
+		return redirect('/' . $date);
 	}
 
-	public function delete()
+	public function delete($date)
 	{
 		Transaction::destroy(request('id'));
-		return redirect('/' . request('date'));
+		return redirect('/' . $date);
 	}
 }

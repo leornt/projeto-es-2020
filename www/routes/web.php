@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', function () {
-    
-});
-Route::get('/{date}', [DashboardController::class, 'index'])->middleware('auth');
-Route::post('/', [DashboardController::class, 'save']);
-Route::delete('/', [DashboardController::class, 'delete']);
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/{date?}', [DashboardController::class, 'index'])->middleware('auth');
+Route::post('/{date}', [DashboardController::class, 'save']);
+Route::delete('/{date}', [DashboardController::class, 'delete']);
