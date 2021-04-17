@@ -22,11 +22,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<body style="height: 100vh;">
+    <div id="app" class="h-100">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="z-index: 2;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('images/icon-dark.png') }}" width="48px" height="48px">
                     {{ config('app.name', 'CtrlCash') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -77,7 +78,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="h-100">
             @yield('content')
         </main>
     </div>
