@@ -42,13 +42,15 @@ class DashboardController extends Controller
 	public function save($date)
 	{
 		$t = new Transaction();
+		$tt = TransactionType::where('name', request("transaction-type"))->first();
+		$value = ($tt->type == 'expense') ? -floatval(request('value')) : request('value');
 
 		$t->user_id = Auth::id();
-		$t->transaction_type_id = TransactionType::where('name', request("transaction-type"))->first()->id;
+		$t->transaction_type_id = $tt->id;
 		$t->date = $date;
 		$t->description = request('description');
-		$t->value = request('value');
-		$t->type = $t->value < 0 ? "expense" : "income";
+		$t->value = $value;
+		$t->type = $tt->type;
 
 		$t->save();
 

@@ -2,14 +2,6 @@
 
 @section('content')
 
-<!-- @php
-
-$date = request()->route()->parameter('date');
-$display_month = date_format(date_create($date), 'F Y');
-$month_total = $current->sum('value');
-
-@endphp -->
-
 <div class="container-fluid px-4">
 	<div class="row">
 		<table class="table table-hover table-borderless col-2">
@@ -17,7 +9,7 @@ $month_total = $current->sum('value');
 				@foreach ($all as $month)
 				<tr>
 					<td><a style="font-weight: bold;" href="/{{ $month->date }}">{{ $month->PrintableDate() }}</a></td>
-					<td><span style="font-weight: bold; float: right;" class="{{ $month->total >= 0 ? 'text-success' : 'text-danger' }}">{{ $month->total }}</span></td>
+					<td><span style="font-weight: bold; float: right;" class="{{ $month->total >= 0 ? 'text-success' : 'text-danger' }}">{{ number_format($month->total, 2) }}</span></td>
 				</tr>
 				@endforeach
 			</tbody>
@@ -40,20 +32,20 @@ $month_total = $current->sum('value');
 						<form class="row" method="POST" action="/{{ $date }}">
 							@csrf
 							<div class="col-6">
-								<input type="text" class="form-control form-control-sm" required name="description" placeholder="Description">
+								<input type="text" class="form-control form-control-sm" required name="description" placeholder="Description" tabindex="1">
 							</div>
 							<div class="col-3">
-								<input type="number" class="form-control form-control-sm" step="any" required name="value" placeholder="R$">
+								<input type="number" class="form-control form-control-sm" step="any" required name="value" placeholder="R$" min="0" tabindex="2">
 							</div>
 							<div class="col-2">
-								<select name="transaction-type" class="form-control form-control-sm">
+								<select name="transaction-type" class="form-control form-control-sm" tabindex="3">
 									@foreach ($t_types as $transaction_type)
 									<option>{{ $transaction_type->name }}</option>
 									@endforeach
 								</select>
 							</div>
 							<div class="col-1">
-								<input type="submit" class="btn btn-light btn-outline-secondary btn-sm" value="Add">
+								<input type="submit" class="btn btn-light btn-outline-secondary btn-sm" value="Add" tabindex="4">
 							</div>
 						</form>
 					</div>
@@ -82,8 +74,8 @@ $month_total = $current->sum('value');
 													<td class="col-7" style="text-align: left;">
 														{{ $transaction->description }}
 													</td>
-													<td class="col-3 text-success" style="font-weight: bold;">
-														{{ $transaction->value }}
+													<td class="col-3 text-success" style="font-weight: bold; text-align: left;">
+														R$ {{ number_format($transaction->value, 2) }}
 													</td>
 												</tr>
 												@endif
@@ -113,8 +105,8 @@ $month_total = $current->sum('value');
 													<td class="col-7" style="text-align: left;">
 														{{ $transaction->description }}
 													</td>
-													<td class="col-3 text-danger" style="font-weight: bold;">
-														{{ $transaction->value }}
+													<td class="col-3 text-danger" style="font-weight: bold; text-align: left;">
+														R$ {{ number_format(abs($transaction->value), 2) }}
 													</td>
 												</tr>
 												@endif
@@ -131,76 +123,4 @@ $month_total = $current->sum('value');
 		</div>
 	</div>
 </div>
-<script>
-
-</script>
-
-<!-- <div class="container-fluid">
-	<div class="row">
-		<div class="col-2">
-			<div>
-				@foreach ($all as $month)
-				<div style="background-color: {{ $month->total < 0 ? '#FFA0A0' : '#B0FFAE' }}; color: {{ $month->total < 0 ? '#8B0000' : '#228B22' }};">
-					<a style="color: {{ $month->total < 0 ? '#8B0000' : '#228B22' }};" href="/{{ $month->date }}">
-						{{ $month->PrintableDate() }}
-					</a>
-					<span>{{ $month->total }}</span>
-				</div>
-				@endforeach
-			</div>
-		</div>
-
-		<div class="col container-fluid">
-			<div class="row container-fluid">
-				<h2 class="row">Available budget in <span style="font-weight: bold;">{{ $display_month }}</span></h2>
-				<p class="row">
-					<span style="font-weight: bold; font-size: 32px; {{ $month_total < 0 ? 'red' : 'green' }}">
-						R$ {{ $month_total }}
-					</span>
-				</p>
-
-				<form method="POST" action="/{{ $date }}">
-					@csrf
-					<div>
-						<div>
-							<input type="text" name="description" required maxlength="40">
-						</div>
-						<div>
-							<span style="margin: 0px 4px 0px 0px;">R$</span>
-							<input type="number" name="value" required>
-						</div>
-						<div>
-							<select name="transaction-type">
-								@foreach ($t_types as $t)
-								<option>{{ $t->name }}</option>
-								@endforeach
-							</select>
-						</div>
-						<div>
-							<input type="submit" value="Add">
-						</div>
-					</div>
-				</form>
-			</div>
-
-			<div>
-				<div>
-					@foreach ($current as $t)
-					<div>
-						<form method="POST" action="/{{ $date }}">
-							@method('DELETE')
-							@csrf
-
-							<input type="hidden" name="id" value="{{ $t->id }}">
-							<button type="submit">-</button>
-							{{ $t->description }} - {{ $t->value }}
-						</form>
-					</div>
-					@endforeach
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
-
 @endsection
