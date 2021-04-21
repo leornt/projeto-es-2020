@@ -1,20 +1,17 @@
 **RELATÓRIO DA ITERAÇÃO 4**
-Período: 05/03/21 a 09/04/21
+Período: 29/03/21 a 16/04/21
 
 **Atividades planejadas:**
-1 – Continuação do desenvolvimento
-2 – Melhorar visualmente o site 
-3 – Aprimorar o banco de dados
-4 – Modelo de dados
-5 – Criação de testes
-
+1 – Melhorar visualmente o site (css)
+2 – Aprimorar o banco de dados (queries, transactions)
+3 – Modelo de dados
+4 – Criação de testes
 
 **Atividades realizadas:**
-O desenvolvimento continuou durante o período de 05/03 até 09/04.
-O sistema de login funciona normalmente e a página teve o design remodelado durante esse período.
-Uma página inicial para adicionar despesas foi adicionada e teve o design remodelado.
-O modelo do banco de dados foi criado e o banco implementado, funcionando sem problemas.
-Ainda não foram criados testes.
+1- O site foi modificado visualmente em várias partes.
+2- As queries foram criadas e ajustadas e tipos de transações novos foram adicionados.
+3- O modelo de dados foi adicionado.
+4- Os testes foram realizados durante a iteração 4, conforme coisas novas eram adicionadas.
 
 **Atividades da próxima iteração**
 1 – Finalização do desenvolvimento
@@ -26,5 +23,5 @@ Ainda não foram criados testes.
 
 **Lições aprendidas:**
 A importância de ter uma boa apresentação no sistema, comparando a tela de login anterior com a atual; 
-aprendizados no geral sobre o Docker, a linguagem de programação e o básico do front end; 
-a importância de um banco de dados bem modelado.
+Aprendizados no geral sobre o Docker.
+A importância de um banco de dados bem modelado.
