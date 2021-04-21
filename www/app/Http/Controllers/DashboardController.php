@@ -12,7 +12,7 @@ class DashboardController extends Controller
 	public function index($date = null)
 	{
 		if ($date == null)
-			return redirect('/' . date_format(date_create(), 'Y-m-d'));
+			return redirect('/budget/' . date_format(date_create(), 'Y-m-d'));
 		$carbon = Carbon::createFromFormat('Y-m-d', $date);
 
 		$current = Transaction::where('user_id', Auth::id())
@@ -54,12 +54,12 @@ class DashboardController extends Controller
 
 		$t->save();
 
-		return redirect('/' . $date);
+		return redirect('/budget/' . $date);
 	}
 
 	public function delete($date)
 	{
 		Transaction::destroy(request('id'));
-		return redirect('/' . $date);
+		return redirect('/budget/' . $date);
 	}
 }

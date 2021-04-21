@@ -16,12 +16,14 @@ class TransactionTypeSeeder extends Seeder
 	{
 		DB::table('transaction_types')->insert(
 			[
-				['name' => 'Salary', 'type' => 'income'],
-				['name' => 'Bill', 'type' => 'expense'],
-				['name' => 'Travel', 'type' => 'expense'],
-				['name' => 'Reform', 'type' => 'expense'],
-				['name' => 'Loan', 'type' => 'income'],
-				['name' => 'Purchase', 'type' => 'expense']
+				['name' => 'Salary (Income)', 'type' => 'income'],
+				['name' => 'Bill (Expense)', 'type' => 'expense'],
+				['name' => 'Travel (Expense)', 'type' => 'expense'],
+				['name' => 'Reform (Expense)', 'type' => 'expense'],
+				['name' => 'Loan (Income)', 'type' => 'income'],
+				['name' => 'Purchase (Expense)', 'type' => 'expense'],
+				['name' => 'Other (Income)', 'type' => 'income'],
+				['name' => 'Other (Expense)', 'type' => 'expense']
 			]
 		);
 	}

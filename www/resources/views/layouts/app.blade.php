@@ -26,9 +26,8 @@
     <div id="app" class="h-100">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="z-index: 2;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('images/icon-dark.png') }}" width="48px" height="48px">
-                    {{ config('app.name', 'CtrlCash') }}
+                <a class="navbar-brand" href="{{ url('/budget') }}">
+                    <img src="{{ asset('images/icon-dark.png') }}" width="auto" height="48px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -37,7 +36,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->

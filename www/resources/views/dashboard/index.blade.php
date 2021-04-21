@@ -15,7 +15,7 @@
 				<tbody>
 					@foreach ($all as $month)
 					<tr class="bg-secondary">
-						<td><a class="text-dark" style="font-weight: bold;" href="/{{ $month->date }}">{{ $month->PrintableDate() }}</a></td>
+						<td><a class="text-dark" style="font-weight: bold;" href="/budget/{{ $month->date }}">{{ $month->PrintableDate() }}</a></td>
 						<td><span style="font-weight: bold; float: right;" class="{{ $month->total >= 0 ? 'text-success' : 'text-danger' }}">R$ {{ number_format($month->total, 2) }}</span></td>
 					</tr>
 					@endforeach
@@ -37,7 +37,7 @@
 
 				<div class="row bg-secondary justify-content-center">
 					<div class="col-8 my-3">
-						<form class="row" method="POST" action="/{{ $date }}">
+						<form class="row" method="POST" action="/budget/{{ $date }}">
 							@csrf
 							<div class="col-6">
 								<input type="text" class="form-control form-control-sm border-dark" required name="description" placeholder="Description" tabindex="1" maxlength="64">
@@ -67,7 +67,7 @@
 									<div class="row justify-content-center">
 										<span class="text-success pb-3" style="font-weight: bold; font-size: 24px">INCOME</span>
 									</div>
-									<form method="POST" action="/{{ $date }}">
+									<form method="POST" action="/budget/{{ $date }}">
 										@csrf
 										@method('DELETE')
 										<table class="table table-borderless">
@@ -98,7 +98,7 @@
 									<div class="row justify-content-center">
 										<span class="text-danger pb-3" style="font-weight: bold; font-size: 24px">EXPENSES</span>
 									</div>
-									<form method="POST" action="/{{ $date }}">
+									<form method="POST" action="/budget/{{ $date }}">
 										@csrf
 										@method('DELETE')
 										<table class="table table-borderless">
