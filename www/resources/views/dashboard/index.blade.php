@@ -16,7 +16,7 @@
 					@foreach ($all as $month)
 					<tr class="bg-secondary">
 						<td><a class="text-dark" style="font-weight: bold;" href="/{{ $month->date }}">{{ $month->PrintableDate() }}</a></td>
-						<td><span style="font-weight: bold; float: right;" class="{{ $month->total >= 0 ? 'text-success' : 'text-danger' }}">{{ number_format($month->total, 2) }}</span></td>
+						<td><span style="font-weight: bold; float: right;" class="{{ $month->total >= 0 ? 'text-success' : 'text-danger' }}">R$ {{ number_format($month->total, 2) }}</span></td>
 					</tr>
 					@endforeach
 				</tbody>
