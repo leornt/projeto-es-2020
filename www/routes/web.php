@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::redirect('/', '/budget/')->middleware('auth');
+Route::redirect('/', '/budget/');
 Route::get('/budget/{date?}', [DashboardController::class, 'index'])->middleware('auth');
 Route::post('/budget/{date}', [DashboardController::class, 'save'])->middleware('auth');
 Route::delete('/budget/{date}', [DashboardController::class, 'delete'])->middleware('auth');
