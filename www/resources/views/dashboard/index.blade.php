@@ -80,7 +80,7 @@
 														<input type="submit" class="btn btn-secondary rounded-circle" value="-">
 													</td>
 													<td class="col-7" style="text-align: left; word-wrap: break-word;">
-														{{ $transaction->description }} ({{ $transaction->type->name }})
+														{{ $transaction->description }} ({{ $transaction->transaction_name }})
 													</td>
 													<td class="col-3 text-success" style="font-weight: bold; text-align: left; word-wrap: break-word;">
 														R$ {{ number_format($transaction->value, 2) }}
@@ -111,7 +111,7 @@
 														<input type="submit" class="btn btn-secondary rounded-circle" value="-">
 													</td>
 													<td class="col-7" style="text-align: left; word-wrap: break-word;">
-														{{ $transaction->description }} ({{ $transaction->type->name }})
+														{{ $transaction->description }} ({{ $transaction->transaction_name }})
 													</td>
 													<td class="col-3 text-danger" style="font-weight: bold; text-align: left; word-wrap: break-word;">
 														R$ {{ number_format(abs($transaction->value), 2) }}

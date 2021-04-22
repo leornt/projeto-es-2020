@@ -18,6 +18,8 @@ class DashboardController extends Controller
 		$current = Transaction::where('user_id', Auth::id())
 			->where('date', '>=', $carbon->startOfMonth()->format('Y-m-d'))
 			->where('date', '<=', $carbon->endOfMonth()->format('Y-m-d'))
+			->join('transaction_types', 'transaction_type_id', '=', 'transaction_types.id')
+			->select('transactions.*', 'transaction_types.name as transaction_name')
 			->get();
 
 		$all = Transaction::selectRaw('date, SUM(value) as total')
