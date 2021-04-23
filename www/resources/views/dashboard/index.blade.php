@@ -15,7 +15,7 @@
 				<tbody>
 					@foreach ($all as $month)
 					<tr class="bg-secondary">
-						<td><a class="text-dark" style="font-weight: bold;" href="/budget/{{ $month->date }}">{{ $month->PrintableDate() }}</a></td>
+						<td><a class="text-dark" style="font-weight: bold;" href="/budget/{{ $month->date }}">{{ date_format(date_create($month->date), 'F Y') }}</a></td>
 						<td><span style="font-weight: bold; float: right;" class="{{ $month->total >= 0 ? 'text-success' : 'text-danger' }}">R$ {{ number_format($month->total, 2) }}</span></td>
 					</tr>
 					@endforeach
@@ -47,8 +47,8 @@
 							</div>
 							<div class="col-2">
 								<select name="transaction-type" class="form-control form-control-sm border-dark" tabindex="3">
-									@foreach ($t_types as $transaction_type)
-									<option>{{ $transaction_type->name }}</option>
+									@foreach ($t_types as $t_type)
+									<option>{{ $t_type->name }} ({{ $t_type->type }})</option>
 									@endforeach
 								</select>
 							</div>
@@ -73,14 +73,14 @@
 										<table class="table table-borderless">
 											<tbody>
 												@foreach ($current as $transaction)
-												@if($transaction->type == 'income')
+												@if($transaction->type == 'Income')
 												<tr class="row align-items-center" style="font-size: 20px;">
 													<td style="word-wrap: break-word;" class="col-2">
 														<input type="hidden" name="id" value="{{ $transaction->id }}">
 														<input type="submit" class="btn btn-secondary rounded-circle" value="-">
 													</td>
 													<td class="col-7" style="text-align: left; word-wrap: break-word;">
-														{{ $transaction->description }} ({{ $transaction->transaction_name }})
+														{{ $transaction->description }} ({{ $transaction->name }})
 													</td>
 													<td class="col-3 text-success" style="font-weight: bold; text-align: left; word-wrap: break-word;">
 														R$ {{ number_format($transaction->value, 2) }}
@@ -104,14 +104,14 @@
 										<table class="table table-borderless">
 											<tbody>
 												@foreach ($current as $transaction)
-												@if($transaction->type == 'expense')
+												@if($transaction->type == 'Expense')
 												<tr class="row align-items-center" style="font-size: 20px; word-wrap: break-word;">
 													<td class="col-2">
 														<input type="hidden" name="id" value="{{ $transaction->id }}">
 														<input type="submit" class="btn btn-secondary rounded-circle" value="-">
 													</td>
 													<td class="col-7" style="text-align: left; word-wrap: break-word;">
-														{{ $transaction->description }} ({{ $transaction->transaction_name }})
+														{{ $transaction->description }} ({{ $transaction->name }})
 													</td>
 													<td class="col-3 text-danger" style="font-weight: bold; text-align: left; word-wrap: break-word;">
 														R$ {{ number_format(abs($transaction->value), 2) }}

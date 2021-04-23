@@ -18,9 +18,7 @@ class CreateTransactionsTable extends Migration
 
 			$table->foreignIdFor(App\Models\User::class)->nullable(false);
 			$table->foreignIdFor(App\Models\TransactionType::class)->nullable(false);
-			
-			// 'income' or 'expense'
-			$table->string('type')->nullable(false);
+
 			$table->date('date')->nullable(false);
 			$table->text('description')->nullable(false);
 			$table->decimal('value')->nullable(false);

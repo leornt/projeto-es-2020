@@ -19,7 +19,7 @@ class DashboardController extends Controller
 			->where('date', '>=', $carbon->startOfMonth()->format('Y-m-d'))
 			->where('date', '<=', $carbon->endOfMonth()->format('Y-m-d'))
 			->join('transaction_types', 'transaction_type_id', '=', 'transaction_types.id')
-			->select('transactions.*', 'transaction_types.name as transaction_name')
+			->select('transactions.*', 'transaction_types.name as name', 'transaction_types.type as type')
 			->get();
 
 		$all = Transaction::selectRaw('date, SUM(value) as total')
@@ -44,15 +44,15 @@ class DashboardController extends Controller
 	public function save($date)
 	{
 		$t = new Transaction();
-		$tt = TransactionType::where('name', request("transaction-type"))->first();
-		$value = ($tt->type == 'expense') ? -floatval(request('value')) : request('value');
+		$tt = TransactionType::whereRaw('CONCAT(name, " (", type, ")") LIKE ?', [request("transaction-type")])->first();
+		$value = ($tt->type == 'Expense') ? -floatval(request('value')) : request('value');
 
 		$t->user_id = Auth::id();
 		$t->transaction_type_id = $tt->id;
+
 		$t->date = $date;
 		$t->description = request('description');
 		$t->value = $value;
-		$t->type = $tt->type;
 
 		$t->save();
 
