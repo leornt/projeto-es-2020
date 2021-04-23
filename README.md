@@ -11,7 +11,7 @@ Keeping track of the budget available each month might be difficult, CtrlCash se
 </div>
 
 ## Google Cloud Virtual Machine IP
-- 35.229.26.232
+- 34.71.161.243
 - :80 - PHP
 - :3306 - MySQL
 
